@@ -1,3 +1,4 @@
+import 'package:alloy/Screens/Home/home_screen.dart';
 import 'package:alloy/components/already_have_an_account_acheck.dart';
 import 'package:alloy/components/rounded_button.dart';
 import 'package:alloy/components/rounded_password_field.dart';
@@ -16,36 +17,43 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Background(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            "LOGIN",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30.0,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "LOGIN",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30.0,
+              ),
             ),
-          ),
-          SizedBox(height: size.height * 0.05,),
-          SvgPicture.asset(
-            "assets/icons/wallet.svg",
-            width: size.width * 0.8,
-          ),
-          SizedBox(height: size.height * 0.03,),
-          RoundedInputField(
-            hintText: "Your Email",
-            onChanged: (value) {},
-          ),
-          RoundedPasswordField(
-            onChanged: (value) {},
-          ),
-          RoundedButton(
-            text: "LOGIN",
-            press: () {},
-          ),
-          SizedBox(height: size.height * 0.03,),
-          AlreadyHaveAnAccountCheck(press: () {},),
-        ],
+            SizedBox(height: size.height * 0.05,),
+            SvgPicture.asset(
+              "assets/icons/wallet.svg",
+              height: size.height * 0.25,
+            ),
+            SizedBox(height: size.height * 0.03,),
+            RoundedInputField(
+              hintText: "Your Email",
+              onChanged: (value) {},
+            ),
+            RoundedPasswordField(
+              onChanged: (value) {},
+            ),
+            RoundedButton(
+              text: "LOGIN",
+              press: () {Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context){return HomeScreen();}
+                ),
+              );},
+            ),
+            SizedBox(height: size.height * 0.03,),
+            AlreadyHaveAnAccountCheck(press: () {},),
+          ],
+        ),
       ),
     );
   }
