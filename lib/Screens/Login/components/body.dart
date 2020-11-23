@@ -1,5 +1,6 @@
 import 'package:alloy/Screens/Home/home_screen.dart';
 import 'package:alloy/Screens/Register/register_screen.dart';
+import 'package:alloy/Screens/Welcome/welcome_screen.dart';
 import 'package:alloy/components/already_have_an_account_acheck.dart';
 import 'package:alloy/components/rounded_button.dart';
 import 'package:alloy/components/rounded_input_mail.dart';
@@ -23,12 +24,31 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              "LOGIN",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 30.0,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+
+              children: [
+                IconButton(
+                  icon: Icon(Icons.arrow_back,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context){return WelcomeScreen();}
+                    ),
+                  );},
+                  ),
+                SizedBox(width: size.width * 0.05,),
+                Text(
+                  "LOGIN",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.0,
+                  ),
+                ),
+                SizedBox(width: size.width * 0.35,),
+              ],
             ),
             SizedBox(height: size.height * 0.05,),
             SvgPicture.asset(
